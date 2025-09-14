@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: reg;
+    src: url('fonts/NeueMontreal-Regular.otf');
+}
+
+@font-face {
+    font-family: lig;
+    src: url('fonts/NeueMontreal-Light.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: reg;
+}
+
+.move {
+    animation: move 2s linear infinite alternate;
+}
+
+@keyframes move {
+    from {
+        transform: translate(10%, 10%);
+    }
+
+    to {
+        transform: translate(10%, 20%);
+    }
+}
+
+.loader {
+    transition: margin .8s ease-in-out;
+}
+
+.loader h1 {
+    margin-bottom: -6.2vh;
+    transition: all .5s ease;
+}
+
+.login-signup, .extended-menu {
+    transition: all .5s ease;
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.062);
+    backdrop-filter: blur(100vw);
+}
