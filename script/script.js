@@ -71,7 +71,7 @@ function menu() {
   let isOpen = false;
 
   const toggleMenu = () => {
-    extendedMenu.style.bottom = isOpen ? '-40vh' : '7vh';
+    extendedMenu.style.bottom = isOpen ? '-50vh' : '0vh';
     extendedMenu.style.opacity = isOpen ? '.8' : '1';
     menuBar.forEach(bar => bar.style.backgroundColor = isOpen ? '' : '#2462EB');
     isOpen = !isOpen;
