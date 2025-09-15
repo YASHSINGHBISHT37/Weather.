@@ -46,8 +46,6 @@ function startCityClock(timezoneOffset) {
   }, 1000);
 }
 
-
-
 // ----------------------------
 // Show Delhi by default
 // ----------------------------
