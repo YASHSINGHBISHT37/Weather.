@@ -1,29 +1,3 @@
-import { forcasts } from "./forcast.js";
-
-function forcastSwiper() {
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 'auto',
-    spaceBetween: 8,
-    freeMode: true,
-  });
-}
-
-function forcast() {
-  const forcast = document.querySelector('.forcasting h1');
-  const forcastCont = document.querySelector('.forcasting .forcast-con');
-
-  forcastCont.style.display = 'none';
-
-
-  forcast.addEventListener("click", () => {
-    if (forcastCont.style.display === 'none') {
-      forcastCont.style.display = ''
-    } else {
-      forcastCont.style.display = 'none';
-    }
-  });
-}
-
 function loader() {
   const loader = document.querySelector('.loader');
   const loaderAni = document.querySelector('.loader h1');
@@ -43,26 +17,6 @@ function loader() {
 }
 
 window.addEventListener('load', loader);
-
-
-function forcastRender() {
-  let html = '';
-
-  forcasts.forEach((forcast) => {
-    html += `
-    <div class="swiper-slide p-3 border-2 border-black/50 font-bold w-[30vw] h-auto flex justify-between items-center flex-col text-1xl rounded-2xl">
-      <div class="high-low-temp flex flex-col justify-center items-center">
-        <p>${forcast.max}</p>
-        <p class="opacity-50 mt-[-.5vh]">${forcast.min}</p>
-      </div>
-      <img src="${forcast.img}" class="rounded-2xl w-[20vw] h-[20vw] object-cover my-5">
-      <p class="text-[#121212]/80">${forcast.day}</p>
-    </div>
-  `;
-  });
-
-  document.querySelector('.forcast-con').innerHTML = html;
-}
 
 function menu() {
   const menu = document.querySelector('.menu');
@@ -89,19 +43,23 @@ function menu() {
 
 function logSing() {
   const popUpCross = document.querySelector('.cross');
-  const loginSingup = document.querySelector('.login-signup');
+  const loginSignup = document.querySelector('.login-signup');
+
+  if (!sessionStorage.getItem('popupShown')) {
+    loginSignup.style.top = '20vh';
+    sessionStorage.setItem('popupShown', 'true');
+  } else {
+    loginSignup.style.display = 'none'
+  }
 
   popUpCross.addEventListener('click', () => {
-    loginSingup.style.top = '-30vh';
+    loginSignup.style.top = '-30vh';
   });
 }
 
 
 
-forcastSwiper()
-forcast()
 loader()
-forcastRender()
 menu()
 logSing()
 
