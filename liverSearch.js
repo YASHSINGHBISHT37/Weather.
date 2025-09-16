@@ -17,7 +17,6 @@ const humidity = document.querySelector('.otherDetails .humidity');
 const wind = document.querySelector('.otherDetails .wind');
 
 const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-
 let clockInterval = null;
 
 // ----------------------------
@@ -92,7 +91,7 @@ function displayCitySuggestions(cities) {
 
     html += `
       <li 
-        class="flex justify-between items-center cursor-pointer py-1 ${borderClass} border-[#121212]/50 px-4 hover:bg-blue-700/70 hover:text-white"
+        class="w-full flex justify-between items-center cursor-pointer py-1 ${borderClass} border-[#121212]/50 px-4 hover:bg-blue-700/70 hover:text-white "
         data-lat="${city.lat}"
         data-lon="${city.lon}"
         data-name="${city.name}"

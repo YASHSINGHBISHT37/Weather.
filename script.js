@@ -15,13 +15,13 @@ function loader() {
     loader.style.display = 'none';
   }
 }
-
 window.addEventListener('load', loader);
 
 function menu() {
   const menu = document.querySelector('.menu');
   const extendedMenu = document.querySelector('.extended-menu');
   const menuBar = document.querySelectorAll('.menu .bar');
+  const menuCross = document.querySelectorAll('.menu-cross');
   let isOpen = false;
 
   const toggleMenu = () => {
@@ -45,15 +45,27 @@ function logSing() {
   const popUpCross = document.querySelector('.cross');
   const loginSignup = document.querySelector('.login-signup');
 
-  if (!sessionStorage.getItem('popupShown')) {
-    loginSignup.style.top = '20vh';
-    sessionStorage.setItem('popupShown', 'true');
-  } else {
-    loginSignup.style.display = 'none'
+  function setPopupPosition() {
+    if (!sessionStorage.getItem('popupShown')) {
+      if (window.innerWidth <= 768) {
+        loginSignup.style.top = '0vh';
+      } else {
+        loginSignup.style.top = '14vh';
+      }
+    } else {
+      loginSignup.style.display = 'none';
+    }
   }
 
+  // Run on page load
+  setPopupPosition();
+
+  // Update if window resizes
+  window.addEventListener('resize', setPopupPosition);
+
   popUpCross.addEventListener('click', () => {
-    loginSignup.style.top = '-30vh';
+    loginSignup.style.top = '-36vh';
+    sessionStorage.setItem('popupShown', 'true');
   });
 }
 
