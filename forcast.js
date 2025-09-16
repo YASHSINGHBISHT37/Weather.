@@ -94,6 +94,6 @@ function forcastRender() {
 }
 
 forcastSwiper()
-// forcast()
+forcast()
 forcastRender()
 
